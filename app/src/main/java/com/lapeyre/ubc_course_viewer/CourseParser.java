@@ -26,6 +26,7 @@ public class CourseParser {
                 String term = o.getString("course_term");
                 String activity = o.getString("course_activity");
                 String start = o.getString("course_start");
+                title = title.substring(9);
 
                 if (!section.equals("")) {
                     String[] arr = section.split("\\s+");
