@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">UBC_Course_Viewer</string>
+    <string name="main_activity_button">Get Data!</string>
+    <string name="course_data_top_text">Please choose a course below:</string>
+</resources>
