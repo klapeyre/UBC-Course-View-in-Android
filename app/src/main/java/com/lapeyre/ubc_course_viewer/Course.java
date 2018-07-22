@@ -66,7 +66,7 @@ public class Course implements Serializable {
     }
 
 
-    // A course is equal to another if it is the same code, number and section, in the same term.
+    // A course is equal to another if it is the same code, number and section.
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

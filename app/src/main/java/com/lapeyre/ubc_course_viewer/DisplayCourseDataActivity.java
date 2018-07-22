@@ -12,11 +12,7 @@ import java.util.*;
 
 public class DisplayCourseDataActivity extends AppCompatActivity {
 
-    private ArrayList<String> courseCodes;
-    private ArrayList<String> courseNums;
-    private ArrayList<String> courseSections;
     private CourseManager cm;
-    private Spinner courseCodeSpinner;
     private Spinner courseNumberSpinner;
     private Spinner courseSectionSpinner;
 
@@ -25,18 +21,16 @@ public class DisplayCourseDataActivity extends AppCompatActivity {
     private String selectedSection;
 
     private ArrayList<Course> chosenCourses;
-    private Button addCourseBtn;
-    private Button viewCoursesBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_course_data);
 
-        courseCodes = loadCourseCodes();
-        courseCodeSpinner = (Spinner) findViewById(R.id.courseCodesSpinner);
+        ArrayList<String> courseCodes = loadCourseCodes();
+        Spinner courseCodeSpinner = (Spinner) findViewById(R.id.courseCodesSpinner);
 
-        ArrayAdapter<String> courseCodeAdapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> courseCodeAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, courseCodes);
         courseCodeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         courseCodeSpinner.setAdapter(courseCodeAdapter);
@@ -83,11 +77,6 @@ public class DisplayCourseDataActivity extends AppCompatActivity {
         });
 
         chosenCourses = new ArrayList<>();
-        addCourseBtn = (Button) findViewById(R.id.addCourseBtn);
-        viewCoursesBtn = (Button) findViewById(R.id.viewCoursesBtn);
-
-
-
 
     }
 
@@ -111,23 +100,23 @@ public class DisplayCourseDataActivity extends AppCompatActivity {
     }
 
     private void setupCourseNumberSpinner(String code) {
-        courseNums = loadCourseNumbers(code);
-        ArrayAdapter<String> courseNumberAdapter = new ArrayAdapter<String>(this,
+        ArrayList<String> courseNums = loadCourseNumbers(code);
+        ArrayAdapter<String> courseNumberAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, courseNums);
         courseNumberAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         courseNumberSpinner.setAdapter(courseNumberAdapter);
     }
 
     private void setupCourseSectionSpinner(String code, String number) {
-        courseSections = loadCourseSections(code, number);
-        ArrayAdapter<String> courseSectionAdapter = new ArrayAdapter<String>(this,
+        ArrayList<String> courseSections = loadCourseSections(code, number);
+        ArrayAdapter<String> courseSectionAdapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, courseSections);
         courseSectionAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         courseSectionSpinner.setAdapter(courseSectionAdapter);
     }
 
     private ArrayList<String> loadCourseCodes() {
-        ArrayList<String> codes = new ArrayList<String>();
+        ArrayList<String> codes = new ArrayList<>();
         cm = CourseManager.getInstance();
         Map<Course, Course> courses = cm.getCourses();
         for (Map.Entry<Course, Course> entry : courses.entrySet()) {

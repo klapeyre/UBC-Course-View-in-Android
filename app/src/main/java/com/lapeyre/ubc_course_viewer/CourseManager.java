@@ -6,11 +6,11 @@ import java.util.Map;
 
 public class CourseManager {
 
-    private static Map<Course, Course> courses;
+    private Map<Course, Course> courses;
     private static CourseManager instance;
 
     private CourseManager() {
-        courses = new HashMap<Course, Course>();
+        courses = new HashMap<>();
     }
 
     public static CourseManager getInstance() {
@@ -23,19 +23,19 @@ public class CourseManager {
     }
 
     public void addCourse(Course c) {
-        this.courses.put(c,c);
+        courses.put(c,c);
     }
 
     public void removeCourse(Course c) {
-        this.courses.remove(c);
+        courses.remove(c);
     }
 
     public boolean containsCourse(Course c) {
-        return this.courses.containsKey(c);
+        return courses.containsKey(c);
     }
 
     public Course getCourse(Course c) {
-        return this.courses.get(c);
+        return courses.get(c);
     }
 
     public Course getCourse(String code, String number, String section) {
@@ -52,7 +52,7 @@ public class CourseManager {
     }
 
     public Map<Course, Course> getCourses() {
-        return this.courses;
+        return courses;
     }
 
 

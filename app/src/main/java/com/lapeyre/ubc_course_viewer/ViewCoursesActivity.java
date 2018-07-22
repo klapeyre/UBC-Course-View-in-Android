@@ -11,7 +11,6 @@ import java.util.HashMap;
 
 public class ViewCoursesActivity extends AppCompatActivity {
 
-    private ArrayList<Course> chosenCourses;
     private SimpleAdapter sa;
 
     @Override
@@ -21,18 +20,19 @@ public class ViewCoursesActivity extends AppCompatActivity {
 
         Intent i = getIntent();
 
-        chosenCourses = (ArrayList<Course>) i.getSerializableExtra("Course List");
+        @SuppressWarnings("unchecked")
+        ArrayList<Course> chosenCourses = (ArrayList<Course>) i.getSerializableExtra("Course List");
 
-        displayCourses();
+        displayCourses(chosenCourses);
 
         ((ListView)findViewById(R.id.list)).setAdapter(sa);
     }
 
-    private void displayCourses() {
+    private void displayCourses(ArrayList<Course> courses) {
         // Implement multi-line text views
         ArrayList<HashMap<String, String>> list = new ArrayList<>();
         HashMap<String, String> item;
-        for (Course course: chosenCourses) {
+        for (Course course: courses) {
             item = new HashMap<String, String>();
             String l1 = course.getTitle();
             String l2 = course.getCode() + " " +  course.getNumber() + " " + course.getSection();
