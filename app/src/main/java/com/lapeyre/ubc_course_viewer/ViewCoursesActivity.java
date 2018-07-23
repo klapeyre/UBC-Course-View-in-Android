@@ -33,14 +33,17 @@ public class ViewCoursesActivity extends AppCompatActivity {
         ArrayList<HashMap<String, String>> list = new ArrayList<>();
         HashMap<String, String> item;
         for (Course course: courses) {
-            item = new HashMap<String, String>();
+            item = new HashMap<>();
             String l1 = course.getTitle();
             String l2 = course.getCode() + " " +  course.getNumber() + " " + course.getSection();
             String l3;
-            if (course.getDays().equals("") || course.getEnd().equals("") || course.getStart().equals("")) {
+            String days = course.getDays();
+            String end = course.getEnd();
+            String start = course.getStart();
+            if (days.equals("") || end.equals("") || start.equals("")) {
                 l3 = "";
             } else {
-                l3 = course.getDays() + " , " + course.getStart() + " - " + course.getEnd();
+                l3 = days + " , " + start + " - " + end;
             }
             item.put("line 1", l1);
             item.put("line 2", l2);

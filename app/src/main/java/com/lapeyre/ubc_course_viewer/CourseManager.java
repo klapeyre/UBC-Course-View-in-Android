@@ -23,7 +23,9 @@ public class CourseManager {
     }
 
     public void addCourse(Course c) {
-        courses.put(c,c);
+        if (!courses.containsKey(c)) {
+            courses.put(c,c);
+        }
     }
 
     public void removeCourse(Course c) {
