@@ -14,3 +14,12 @@ Work to do still:
 - User authentication and persisted data
 - Addresses for buildings courses are offered in, which can then be used to pull lat/lon information through HTTP/GET
 - Build in google map usage with application, so you can find where on campus a course lecture can be found
+
+To get started:
+- Download either Android Studio or the Android SDK (can find either on the Android development website here: https://developer.android.com/studio/
+- If using IntelliJ or Eclipse, follow instructions on developer website to install SDK onto computer
+- Install API version 25 (version used in the application currently)
+- Clone project into directory used, boot up in IDE
+- Run app
+
+** Currently uses Java 7. There have been some issues with getting Java 8 to work with Android, they've recently been addressed in Android Studio, but their recommended fixes are currently not working in IntelliJ. Once this is fixed, I can move from using loops on collections of data to streams.
