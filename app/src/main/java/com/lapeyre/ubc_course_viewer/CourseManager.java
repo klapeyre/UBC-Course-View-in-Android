@@ -35,10 +35,6 @@ public class CourseManager {
         return courses.containsKey(c.hashCode());
     }
 
-    public Course getCourse(Course c) {
-        return courses.get(c.hashCode());
-    }
-
     public Course getCourse(String code, String number, String section) {
         Course match = null;
         for (Map.Entry<Integer, Course> entry : courses.entrySet()) {

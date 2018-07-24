@@ -93,6 +93,19 @@ public class DisplayCourseDataActivity extends AppCompatActivity {
         }
     }
 
+    public void removeCourseFromList(View view) {
+        cm = CourseManager.getInstance();
+        Course match = cm.getCourse(selectedCode, selectedNumber, selectedSection);
+        if (match != null) {
+            if (chosenCourses.contains(match)) {
+                chosenCourses.remove(match);
+                Toast.makeText(getApplicationContext(), "Course removed successfully!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Course not found! Maybe you didn't add it yet.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
     public void viewCourses(View view) {
         Intent intent = new Intent(this, ViewCoursesActivity.class);
         intent.putExtra("Course List", (Serializable) chosenCourses);
@@ -154,7 +167,6 @@ public class DisplayCourseDataActivity extends AppCompatActivity {
                 }
             }
         }
-
         Collections.sort(sections);
         return sections;
     }

@@ -54,7 +54,7 @@ public class CourseManagerTest {
         cm1.addCourse(c1);
         cm1.addCourse(c3);
         assertTrue(cm1.getCourses().size() == 1);
-        Course getC3 = cm1.getCourse(c3);
+        Course getC3 = cm1.getCourse("ABCD", "101", "001");
         assertFalse(getC3.getTitle().equals("Test Course 1 - Duplicate"));
     }
 
@@ -68,19 +68,5 @@ public class CourseManagerTest {
         cm1.removeCourse(c1);
         assertTrue(cm1.getCourses().size() == 0);
         assertFalse(cm1.containsCourse(c1));
-    }
-
-    @Test
-    public void testGetCourseByCourse() {
-        Course c1Dup = new Course("Test Course 1", "ABCD", "101", "001",
-                "14:00", "15:00", "Mon Wed", "1", "Lecture");
-
-        CourseManager cm1 = CourseManager.getInstance();
-        cm1.addCourse(c1);
-        assertTrue(cm1.getCourses().size() == 1);
-        assertTrue(cm1.containsCourse(c1));
-
-        Course getC1 = cm1.getCourse(c1Dup);
-        assertTrue(getC1.equals(c1Dup));
     }
 }
