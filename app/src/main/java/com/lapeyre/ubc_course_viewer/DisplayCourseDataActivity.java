@@ -118,13 +118,12 @@ public class DisplayCourseDataActivity extends AppCompatActivity {
     private ArrayList<String> loadCourseCodes() {
         ArrayList<String> codes = new ArrayList<>();
         cm = CourseManager.getInstance();
-        Map<Course, Course> courses = cm.getCourses();
-        for (Map.Entry<Course, Course> entry : courses.entrySet()) {
-            if (!codes.contains(entry.getValue().getCode())) {
-                codes.add(entry.getValue().getCode());
+        List<Course> courses = cm.getCourses();
+        for (Course c : courses) {
+            if (!codes.contains(c.getCode())) {
+                codes.add(c.getCode());
             }
         }
-
         Collections.sort(codes);
         return codes;
     }
@@ -132,16 +131,14 @@ public class DisplayCourseDataActivity extends AppCompatActivity {
     private ArrayList<String> loadCourseNumbers(String code) {
         ArrayList<String> nums = new ArrayList<>();
         cm = CourseManager.getInstance();
-        Map<Course, Course> courses = cm.getCourses();
-        for (Map.Entry<Course, Course> entry : courses.entrySet()) {
-            if (entry.getValue().getCode().equals(code)) {
-                if (!nums.contains(entry.getValue().getNumber())) {
-                    nums.add(entry.getValue().getNumber());
+        List<Course> courses = cm.getCourses();
+        for (Course c : courses) {
+            if (c.getCode().equals(code)) {
+                if (!nums.contains(c.getNumber())) {
+                    nums.add(c.getNumber());
                 }
             }
-
         }
-
         Collections.sort(nums);
         return nums;
     }
@@ -149,11 +146,11 @@ public class DisplayCourseDataActivity extends AppCompatActivity {
     private ArrayList<String> loadCourseSections(String code, String number) {
         ArrayList<String> sections = new ArrayList<>();
         cm = CourseManager.getInstance();
-        Map<Course, Course> courses = cm.getCourses();
-        for (Map.Entry<Course, Course> entry : courses.entrySet()) {
-            if (entry.getValue().getCode().equals(code) && entry.getValue().getNumber().equals(number)) {
-                if (!sections.contains(entry.getValue().getSection())) {
-                    sections.add(entry.getValue().getSection());
+        List<Course> courses = cm.getCourses();
+        for (Course c : courses) {
+            if (c.getCode().equals(code) && c.getNumber().equals(number)) {
+                if (!sections.contains(c.getSection())) {
+                    sections.add(c.getSection());
                 }
             }
         }

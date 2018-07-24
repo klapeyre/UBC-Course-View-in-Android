@@ -1,12 +1,11 @@
 package com.lapeyre.ubc_course_viewer;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 
 public class CourseManager {
 
-    private Map<Course, Course> courses;
+    private Map<Integer, Course> courses;
     private static CourseManager instance;
 
     private CourseManager() {
@@ -23,26 +22,26 @@ public class CourseManager {
     }
 
     public void addCourse(Course c) {
-        if (!courses.containsKey(c)) {
-            courses.put(c,c);
+        if (!courses.containsKey(c.hashCode())) {
+            courses.put(c.hashCode(),c);
         }
     }
 
     public void removeCourse(Course c) {
-        courses.remove(c);
+        courses.remove(c.hashCode());
     }
 
     public boolean containsCourse(Course c) {
-        return courses.containsKey(c);
+        return courses.containsKey(c.hashCode());
     }
 
     public Course getCourse(Course c) {
-        return courses.get(c);
+        return courses.get(c.hashCode());
     }
 
     public Course getCourse(String code, String number, String section) {
         Course match = null;
-        for (Map.Entry<Course, Course> entry : courses.entrySet()) {
+        for (Map.Entry<Integer, Course> entry : courses.entrySet()) {
             if (entry.getValue().getCode().equals(code) &&
                     entry.getValue().getNumber().equals(number) &&
                     entry.getValue().getSection().equals(section)) {
@@ -53,8 +52,9 @@ public class CourseManager {
         return match;
     }
 
-    public Map<Course, Course> getCourses() {
-        return courses;
+    public List<Course> getCourses() {
+        List<Course> cs = new ArrayList<Course>(courses.values());
+        return Collections.unmodifiableList(cs);
     }
 
 

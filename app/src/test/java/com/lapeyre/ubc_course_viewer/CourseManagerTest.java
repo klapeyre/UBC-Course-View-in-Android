@@ -7,9 +7,9 @@ import static org.junit.Assert.*;
 
 public class CourseManagerTest {
 
-    Course c1;
-    Course c2;
-    Course c3;
+    private Course c1;
+    private Course c2;
+    private Course c3;
 
     @Before
     public void setUp() throws Exception {

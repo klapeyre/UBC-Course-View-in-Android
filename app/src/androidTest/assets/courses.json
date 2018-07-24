@@ -1,0 +1,5 @@
+[
+  {"course_end": "13:00", "course_title": "AANB 649 Doctoral Dissertation", "course_section": "AANB 649 003", "course_interval": "", "course_days": "Mon", "course_term": "1-2", "course_activity": "Thesis", "course_start": "08:00"},
+  {"course_end": "14:00", "course_title": "AANB 649 Doctoral Dissertation", "course_section": "AANB 649 001", "course_interval": "", "course_days": "Wed", "course_term": "1", "course_activity": "Thesis", "course_start": "09:00"},
+  {"course_end": "15:00", "course_title": "AANB 649 Doctoral Dissertation", "course_section": "AANB 649 002", "course_interval": "", "course_days": "Fri", "course_term": "2", "course_activity": "Thesis", "course_start": "10:00"}
+]
