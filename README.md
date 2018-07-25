@@ -10,13 +10,12 @@ You will need either:
 - The latest version of your IDE of choice that supports android SDK development (I chose to use IntelliJ). You can download just the SDK from the same source as the Android Studio IDE
 
 Mac users can choose to use Homebrew to setup the sdk instead if preferred:
----
-brew install ant
-brew install maven
-brew install gradle
-brew install android-sdk
-brew install android-ndk
----
+
+    brew install ant
+    brew install maven
+    brew install gradle
+    brew install android-sdk
+    brew install android-ndk
 
 This application uses API version 25; this will need to be installed, as well as the ADB (for emulation) - can be done through either the IDE or lauching the sdkmanager.
 
