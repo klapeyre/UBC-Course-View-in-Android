@@ -32,3 +32,5 @@ Press ADD COURSE once you have chosen one to add. You can remove courses you hav
 ## Test
 
 Unit tests can be run by selecting 'Run tests' on packages in both the java section of the module (model tests), as well as the androidTest section (parser activity tests).
+
+** Currently uses Java 7. There have been some issues with getting Java 8 to work with Android, they've recently been addressed in Android Studio, but their recommended fixes are currently not working in IntelliJ. Once this is fixed, I can move from using loops on collections of data to streams.
