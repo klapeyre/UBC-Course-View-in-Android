@@ -36,15 +36,10 @@ public class ViewCoursesActivity extends AppCompatActivity {
             item = new HashMap<>();
             String l1 = course.getTitle();
             String l2 = course.getCode() + " " +  course.getNumber() + " " + course.getSection();
-            String l3;
             String days = course.getDays();
             String end = course.getEnd();
             String start = course.getStart();
-            if (days.equals("") || end.equals("") || start.equals("")) {
-                l3 = "";
-            } else {
-                l3 = days + " , " + start + " - " + end;
-            }
+            String l3 = missingDaysOrTimes(days, start, end) ? "" : (days + " , " + start + " - " + end);
             item.put("line 1", l1);
             item.put("line 2", l2);
             item.put("line 3", l3);
@@ -55,5 +50,9 @@ public class ViewCoursesActivity extends AppCompatActivity {
                 R.layout.multi_lines,
                 new String[] {"line 1", "line 2", "line 3"},
                 new int[] {R.id.line_a, R.id.line_b, R.id.line_c});
+    }
+
+    private boolean missingDaysOrTimes(String days, String start, String end) {
+        return (days.equals("") || end.equals("") || start.equals(""));
     }
 }
